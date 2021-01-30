@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.gecko;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -48,7 +48,7 @@ import org.mozilla.geckoview.GeckoSession;
 import org.mozilla.geckoview.GeckoSession.PermissionDelegate.MediaSource;
 import org.mozilla.geckoview.SlowScriptResponse;
 
-final class BasicGeckoViewPrompt implements GeckoSession.PromptDelegate {
+ class BasicGeckoViewPrompt implements GeckoSession.PromptDelegate {
     protected static final String LOGTAG = "BasicGeckoViewPrompt";
 
     private final Activity mActivity;

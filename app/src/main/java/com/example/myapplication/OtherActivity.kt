@@ -1,14 +1,12 @@
 package com.example.myapplication
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.gecko.GeckoSessionCreator
 import org.mozilla.geckoview.GeckoSession
 import org.mozilla.geckoview.GeckoView
 
-class MainActivity : AppCompatActivity() {
-
+class OtherActivity : AppCompatActivity() {
 
     private val geckoSession = GeckoSession()
 
@@ -18,31 +16,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_other)
 
         if (supportActionBar != null)
             supportActionBar?.hide()
 
         geckoView = findViewById(R.id.geckoview)
 
-        GeckoSessionCreator.setupGeckoView(
-            "https://brainandbinary.com",
-            geckoSession,
-            geckoView,
-            findViewById(R.id.page_progress),
-            this,
-            false
-        ) {
-            val intent = Intent(this, OtherActivity::class.java).apply {
-                putExtra("url", it)
+        val extras = getIntent().getExtras()
+        val url = extras?.getString("url")
+
+        if(url!=null){
+            println("Mahadi  $url")
+            GeckoSessionCreator.setupGeckoView(
+                "$url",
+                geckoSession,
+                geckoView,
+                findViewById(R.id.page_progress),
+                this,
+                true
+            ){
+                    _ -> println("Hi..........................@@@@@@@@@@@@@"+url)
             }
-
-            startActivity(intent)
-
-
         }
+
+
 
     }
 }
-
-
