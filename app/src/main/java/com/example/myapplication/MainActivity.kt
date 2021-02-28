@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         geckoView = findViewById(R.id.geckoview)
 
         GeckoSessionCreator.setupGeckoView(
-            "https://brainandbinary.com",
+            "https://www.thedailystar.net/",
             geckoSession,
             geckoView,
             findViewById(R.id.page_progress),

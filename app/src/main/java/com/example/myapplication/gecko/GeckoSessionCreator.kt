@@ -21,6 +21,7 @@ object GeckoSessionCreator {
     ) {
 
 
+
         // 2
         if(attachToRuntime){
             runtime.attachTo(activityContext)
@@ -58,7 +59,7 @@ object GeckoSessionCreator {
                 session: GeckoSession,
                 request: GeckoSession.NavigationDelegate.LoadRequest
             ): GeckoResult<AllowOrDeny> {
-                return if (request.uri.startsWith("https://youtube.com/")) {
+                return if (!request.uri.startsWith("https://www.thedailystar.net/")) {
                     //This link will open android webview because this method will always block the
                     //link and it is safe to open other url in android webview. And there needs to block
                     //central app link to avoid forgery.
@@ -84,12 +85,12 @@ object GeckoSessionCreator {
 
             override fun onProgressChange(session: GeckoSession, progress: Int) {
                 progressView.progress = progress
-                println(progress)
-                if (progress in 1..99) {
+
+                /*if (progress in 1..99) {
                     progressView.visibility = View.VISIBLE
                 } else {
                     progressView.visibility = View.GONE
-                }
+                }*/
             }
         }
     }

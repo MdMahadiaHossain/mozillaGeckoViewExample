@@ -27,17 +27,15 @@ class OtherActivity : AppCompatActivity() {
         val url = extras?.getString("url")
 
         if(url!=null){
-            println("Mahadi  $url")
+
             GeckoSessionCreator.setupGeckoView(
-                "$url",
+                "https://google.com/",
                 geckoSession,
                 geckoView,
                 findViewById(R.id.page_progress),
                 this,
                 true
-            ){
-                    _ -> println("Hi..........................@@@@@@@@@@@@@"+url)
-            }
+            ){}
         }
 
 
